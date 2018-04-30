@@ -11,3 +11,7 @@ let MealsHistory = module.exports = mongoose.model('mealsHistory', mealsHistoryS
 module.exports.getAllMealsHistory = (callback) => {
     MealsHistory.find(callback);
 }
+
+module.exports.addMealHistory = (mealHistory, callback) => {
+    mealHistory.save(callback);
+}
