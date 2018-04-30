@@ -12,4 +12,14 @@ router.get('/', (req, res) => {
         });
 });
 
+router.post('/', (req, res) => {
+    const meal = new Meal(req.body);
+    Meal.addMeal(meal, (err, meal) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(meal);
+    });
+});
+
 module.exports = router;
