@@ -15,3 +15,7 @@ module.exports.getAllMealsHistory = (callback) => {
 module.exports.addMealHistory = (mealHistory, callback) => {
     mealHistory.save(callback);
 }
+
+module.exports.delMeal = (id, callback) => {
+    MealsHistory.remove({_id: id}, callback);
+}
