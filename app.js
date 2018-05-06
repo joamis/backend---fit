@@ -11,8 +11,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var mealsRouter = require('./routes/meals');
 var mealsHistoryRouter = require('./routes/mealsHistory');
+let app = express();
 
-var app = express();
+app.set('privateKey', config.privateKey)
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 let cors = require('cors');
-app.use(cors());
+app.use(cors( ));
 
 
 mongoose.connect(config.database);
