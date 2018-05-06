@@ -13,16 +13,17 @@ router.post('/user', (req, res) => { console.log(req.body);
             });
         }
         else {
+            const username = user[0].login
             const payload = {
-                username: user.username
+                username: username
             };
 
             let token = jwt.sign(payload, req.app.get('privateKey'), {
                 expiresIn: 144000
             });
             res.json({
-                success: true,
-                token: token
+                token: token,
+                username: username
             });
         }
     });
