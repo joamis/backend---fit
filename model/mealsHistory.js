@@ -4,7 +4,7 @@ let Schema = mongoose.Schema;
 let mealsHistorySchema = new Schema({
     name: String,
     user: String,
-    date: String
+    date: Date
 }, {collection: 'mealsHistory'});
 
 let MealsHistory = module.exports = mongoose.model('mealsHistory', mealsHistorySchema);

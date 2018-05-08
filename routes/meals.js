@@ -13,13 +13,20 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    delete req.body._id;
     const meal = new Meal(req.body);
+    console.log(meal)
     Meal.addMeal(meal, (err, meal) => {
         if (err) {
+            console.log(err);
             res.send(err);
         }
+        console.log("success");
         res.send(meal);
     });
 });
+
+
+
 
 module.exports = router;

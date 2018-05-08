@@ -23,12 +23,22 @@ router.post('/user', (req, res) => { console.log(req.body);
             });
             res.json({
                 token: token,
-                username: username
+                user: user[0]
             });
         }
     });
 });
 
+router.post('/addUser', (req, res) => {
+    console.log('pppp');
+    const user = new User(req.body);
+    User.addUser(user, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(user);
+    });
+});
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

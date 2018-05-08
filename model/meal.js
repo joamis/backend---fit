@@ -3,6 +3,7 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 let mealSchema = new Schema({
     name: String,
+    imageName: String,
     ingredients: [String],
     calories: Number,
     makro: [String]
